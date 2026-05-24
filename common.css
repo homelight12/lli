@@ -1,212 +1,90 @@
-/* common.css - единые стили для всех страниц */
+/* common.css - только для мобильной перестройки */
 
-/* ===== БАЗОВЫЕ СТИЛИ ДЛЯ ШАПКИ ===== */
-.header {
-    padding: 25px 0 35px;
-}
-
-.header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: 'Widock Trial', 'Manrope', sans-serif;
-    font-weight: 800;
-    letter-spacing: 2px;
-    font-size: 24px;
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.3s;
-}
-
-.logo:hover {
-    opacity: 0.8;
-}
-
-/* Иконки */
-.icon {
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.icon svg {
-    width: 20px;
-    height: 20px;
-    stroke-width: 1.8;
-    transition: all 0.3s ease;
-}
-
-/* Навигация */
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-.nav a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #111;
-    transition: color 0.3s;
-}
-
-.nav a:hover {
-    color: #a6a86c;
-}
-
-/* Поиск */
-.search-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    border: 1.5px solid #111;
-    border-radius: 20px;
-    padding: 6px 14px;
-    width: 320px;
-    transition: border-color 0.3s;
-}
-
-.search-box:focus-within {
-    border-color: #a6a86c;
-}
-
-.search-box svg {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    background: transparent;
-    width: 100%;
-    font-size: 14px;
-}
-
-/* ===== ЕДИНЫЙ ФУТЕР ===== */
-.footer {
-    background: #e6e6e6;
-    padding: 40px 0;
-    width: 100%;
-    margin-top: 60px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-links {
-    display: flex;
-    gap: 70px;
-}
-
-.footer-links .col {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #111;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: #a6a86c;
-}
-
-/* ===== МОБИЛЬНАЯ ВЕРСИЯ (только для экранов до 768px) ===== */
+/* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (до 768px) ===== */
 @media (max-width: 768px) {
-    /* ШАПКА: логотип → иконки → навигация → поиск */
+    /* Перестраиваем шапку */
     .header-row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
     }
     
+    /* Логотип - первый */
     .logo {
-        order: 1;
+        order: 1 !important;
     }
     
-    .header-icons {
-        order: 2;
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        width: 100%;
+    /* Берем иконки из nav и перемещаем их наверх */
+    .nav {
+        order: 3 !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 20px !important;
+        width: 100% !important;
     }
     
-    /* Иконки черного цвета */
-    .header-icons .icon svg {
-        stroke: #111 !important;
+    /* Иконки внутри nav - поднимаем наверх отдельным блоком */
+    .nav .icon,
+    .nav .icon-favorite,
+    .nav .cart-icon {
+        order: -1 !important;
+        display: inline-flex !important;
+    }
+    
+    /* Создаем невидимый контейнер для иконок, чтобы они были перед ссылками */
+    .nav {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Все иконки в nav - черного цвета */
+    .nav .icon svg,
+    .nav .icon-favorite svg,
+    .nav .cart-icon svg {
+        stroke: #111111 !important;
         fill: none !important;
     }
     
-    .nav {
-        order: 3;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        width: 100%;
+    /* Убираем эффект наведения на мобилке */
+    .nav .icon-favorite:hover svg {
+        stroke: #111111 !important;
+        fill: none !important;
     }
     
+    /* Текстовые ссылки */
+    .nav a:not(.icon):not(.icon-favorite):not(.cart-icon) {
+        order: 1 !important;
+    }
+    
+    /* Поиск - внизу */
     .search-wrapper {
-        order: 4;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
+        order: 4 !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 10px !important;
     }
     
-    /* ФУТЕР: как на странице "О нас" */
+    /* Футер - две колонки */
     .footer-content {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
+        flex-direction: column !important;
+        gap: 30px !important;
+        text-align: center !important;
     }
     
     .footer-links {
+        display: flex !important;
         flex-direction: row !important;
-        justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;
+        justify-content: center !important;
+        gap: 40px !important;
+        flex-wrap: wrap !important;
     }
     
     .footer-links .col {
-        align-items: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .search-box {
-        width: 90%;
-        max-width: 280px;
-    }
-    
-    .nav {
-        gap: 15px;
-    }
-    
-    .nav a {
-        font-size: 12px;
-    }
-    
-    .logo {
-        font-size: 24px;
+        align-items: center !important;
     }
 }
