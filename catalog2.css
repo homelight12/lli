@@ -513,31 +513,6 @@ button, input, select, textarea {
         display: inline-flex;
     }
     
- /* ===== МОБИЛЬНАЯ ВЕРСИЯ: НОВЫЙ ПОРЯДОК ЭЛЕМЕНТОВ ШАПКИ ===== */
-@media (max-width: 768px) {
-    .header-row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    /* Логотип - первый */
-    .logo {
-        order: 1;
-    }
-    
-    /* Контейнер для иконок - второй, поверх навигации */
-    .header-icons,
-    .nav .icon-favorite,
-    .nav .icon,
-    .nav a[href*="favorites"],
-    .nav a[href*="profile"],
-    .nav a[href*="trashbin"] {
-        order: 2;
-        display: inline-flex;
-    }
-    
     /* Отдельный блок для иконок, если их нет в отдельном контейнере */
     .header-row > .icon,
     .header-row > a.icon,
@@ -586,4 +561,5 @@ button, input, select, textarea {
         stroke: #111 !important;
         fill: none !important;
     }
+}
 }
