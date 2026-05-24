@@ -1,6 +1,9 @@
+/* common.css - единые стили для всех страниц */
+
 /* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (до 768px) ===== */
 @media (max-width: 768px) {
-    /* ===== ШАПКА ===== */
+    
+    /* ===== ШАПКА: заставляем иконки быть в один ряд ===== */
     .header-row {
         display: flex !important;
         flex-direction: column !important;
@@ -11,22 +14,28 @@
     /* Логотип - первый */
     .logo {
         order: 1 !important;
-        font-size: 28px !important;
-        margin-bottom: 5px !important;
     }
     
-    /* Навигация - второй блок (иконки и ссылки вместе) */
+    /* НАВИГАЦИЯ - заставляем иконки быть в ОДНУ СТРОКУ */
     .nav {
         order: 2 !important;
         display: flex !important;
-        flex-wrap: wrap !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
         justify-content: center !important;
         align-items: center !important;
-        gap: 25px !important;
+        gap: 20px !important;
         width: 100% !important;
     }
     
-    /* Иконки - черного цвета */
+    /* ВСЕ иконки в nav - в одну строку, черного цвета */
+    .nav .icon,
+    .nav .icon-favorite,
+    .nav .cart-icon {
+        display: inline-flex !important;
+        flex-shrink: 0 !important;
+    }
+    
     .nav .icon svg,
     .nav .icon-favorite svg,
     .nav .cart-icon svg {
@@ -37,11 +46,13 @@
         height: 22px !important;
     }
     
-    /* Текстовые ссылки - черные */
+    /* Текстовые ссылки - тоже в одну строку */
     .nav a:not(.icon):not(.icon-favorite):not(.cart-icon) {
+        display: inline-block !important;
         color: #111111 !important;
         font-size: 14px !important;
         text-decoration: none !important;
+        flex-shrink: 0 !important;
     }
     
     /* ===== ГЕРОЙ СЕКЦИЯ - поднимаем текст вверх ===== */
@@ -62,7 +73,7 @@
         top: -5px !important;
     }
     
-    /* ===== КНОПКИ: фон зеленый, ТЕКСТ ЧЕРНЫЙ ===== */
+    /* ===== КНОПКИ: фон зеленый, текст черный ===== */
     .card button,
     .btn-cart,
     .subscribe-btn,
@@ -71,19 +82,9 @@
     .auth-btn,
     .cart button,
     .favorite-card button {
-        background: #a6a86c !important;  /* Зеленый фон */
-        color: #111111 !important;        /* Черный текст */
+        background: #a6a86c !important;
+        color: #111111 !important;
         border: none !important;
-    }
-    
-    .card button:hover,
-    .btn-cart:hover,
-    .subscribe-btn:hover,
-    .checkout-btn:hover,
-    .save-btn:hover,
-    .auth-btn:hover {
-        background: #8b8d5a !important;  /* Темно-зеленый при наведении */
-        color: #111111 !important;        /* Текст остается черным */
     }
     
     /* ===== ФУТЕР ===== */
