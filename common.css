@@ -15,7 +15,7 @@
         margin-bottom: 5px !important;
     }
     
-    /* Контейнер иконок (избранное, корзина, профиль) - второй, в один ряд */
+    /* Контейнер иконок (корзина, профиль) - без сердечка */
     .nav-icons {
         order: 2 !important;
         display: flex !important;
@@ -26,10 +26,9 @@
         width: 100% !important;
     }
     
-    /* Иконки - черного цвета */
-    .nav-icons .icon svg,
-    .nav-icons .icon-favorite svg,
-    .nav-icons .cart-icon svg {
+    /* Иконки корзины и профиля - черного цвета */
+    .nav-icons .cart-icon svg,
+    .nav-icons .icon svg {
         stroke: #111111 !important;
         stroke-width: 1.8 !important;
         fill: none !important;
@@ -37,7 +36,7 @@
         height: 22px !important;
     }
     
-    /* Навигационные ссылки (каталог, доставка, о нас, контакты) - третий, в один ряд */
+    /* Навигационные ссылки + сердечко (избранное) - в один ряд */
     .nav-links {
         order: 3 !important;
         display: flex !important;
@@ -50,13 +49,27 @@
     }
     
     /* Текстовые ссылки - черные */
-    .nav-links a {
+    .nav-links a:not(.icon-favorite) {
         color: #111111 !important;
         font-size: 14px !important;
         text-decoration: none !important;
     }
     
-    /* ===== ГЕРОЙ СЕКЦИЯ - поднимаем текст вверх ===== */
+    /* Сердечко (избранное) среди ссылок - черное */
+    .nav-links .icon-favorite {
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+    
+    .nav-links .icon-favorite svg {
+        stroke: #111111 !important;
+        stroke-width: 1.8 !important;
+        fill: none !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+    
+    /* ===== ГЕРОЙ СЕКЦИЯ ===== */
     .hero {
         padding: 10px 0 30px !important;
     }
@@ -74,7 +87,7 @@
         top: -5px !important;
     }
     
-    /* ===== КНОПКИ: фон зеленый, ТЕКСТ ЧЕРНЫЙ ===== */
+    /* ===== КНОПКИ ===== */
     .card button,
     .btn-cart,
     .subscribe-btn,
@@ -83,8 +96,8 @@
     .auth-btn,
     .cart button,
     .favorite-card button {
-        background: #a6a86c !important;  /* Зеленый фон */
-        color: #111111 !important;        /* Черный текст */
+        background: #a6a86c !important;
+        color: #111111 !important;
         border: none !important;
     }
     
@@ -94,8 +107,8 @@
     .checkout-btn:hover,
     .save-btn:hover,
     .auth-btn:hover {
-        background: #8b8d5a !important;  /* Темно-зеленый при наведении */
-        color: #111111 !important;        /* Текст остается черным */
+        background: #8b8d5a !important;
+        color: #111111 !important;
     }
     
     /* ===== ФУТЕР ===== */
@@ -119,15 +132,90 @@
 }
 
 /* ===== ДЛЯ ЭКРАНОВ 2556x1179 ===== */
-@media (min-width: 1921px) {
+@media (min-width: 1920px) and (max-width: 2560px) {
     .container {
         max-width: 1400px !important;
         margin: 0 auto !important;
+        padding: 0 40px !important;
+    }
+    
+    .header-row {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 20px 0 !important;
+    }
+    
+    .nav {
+        gap: 40px !important;
+    }
+    
+    .nav a {
+        font-size: 16px !important;
+    }
+    
+    .nav .icon svg,
+    .nav .icon-favorite svg,
+    .nav .cart-icon svg {
+        width: 24px !important;
+        height: 24px !important;
     }
     
     .catalog-grid,
     .favorites-grid {
+        display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         gap: 40px !important;
+    }
+    
+    .card {
+        transition: transform 0.2s ease !important;
+    }
+    
+    .card:hover {
+        transform: translateY(-4px) !important;
+    }
+    
+    .hero h1 {
+        font-size: 64px !important;
+    }
+    
+    .hero-text {
+        font-size: 20px !important;
+    }
+    
+    .card button,
+    .btn-cart,
+    .subscribe-btn {
+        padding: 12px 24px !important;
+        font-size: 16px !important;
+    }
+    
+    .footer-content {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        gap: 60px !important;
+    }
+}
+
+/* ===== ДЛЯ ОЧЕНЬ ШИРОКИХ ЭКРАНОВ (2556px и больше) ===== */
+@media (min-width: 2556px) {
+    .container {
+        max-width: 1600px !important;
+        margin: 0 auto !important;
+        padding: 0 60px !important;
+    }
+    
+    .catalog-grid,
+    .favorites-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 48px !important;
+    }
+    
+    .hero h1 {
+        font-size: 80px !important;
+    }
+    
+    .hero-text {
+        font-size: 24px !important;
     }
 }
