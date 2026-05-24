@@ -15,7 +15,7 @@
         margin-bottom: 5px !important;
     }
     
-    /* Контейнер иконок (корзина, профиль) - без сердечка */
+    /* ВСЕ ИКОНКИ (сердечко, корзина, профиль) - второй блок, в один ряд */
     .nav-icons {
         order: 2 !important;
         display: flex !important;
@@ -26,47 +26,40 @@
         width: 100% !important;
     }
     
-    /* Иконки корзины и профиля - черного цвета */
-    .nav-icons .cart-icon svg,
-    .nav-icons .icon svg {
+    /* Все иконки - черного цвета */
+    .nav-icons .icon svg,
+    .nav-icons .icon-favorite svg,
+    .nav-icons .cart-icon svg {
         stroke: #111111 !important;
         stroke-width: 1.8 !important;
         fill: none !important;
-        width: 22px !important;
-        height: 22px !important;
+        width: 24px !important;
+        height: 24px !important;
     }
     
-    /* Навигационные ссылки + сердечко (избранное) - в один ряд */
+    /* ТЕКСТОВЫЕ ССЫЛКИ (каталог, доставка, о нас, контакты) - третий блок, ВНИЗУ */
     .nav-links {
         order: 3 !important;
         display: flex !important;
         flex-direction: row !important;
         justify-content: center !important;
         align-items: center !important;
-        gap: 25px !important;
+        gap: 20px !important;
         flex-wrap: wrap !important;
         width: 100% !important;
+        margin-top: 5px !important;
     }
     
     /* Текстовые ссылки - черные */
-    .nav-links a:not(.icon-favorite) {
+    .nav-links a {
         color: #111111 !important;
         font-size: 14px !important;
         text-decoration: none !important;
     }
     
-    /* Сердечко (избранное) среди ссылок - черное */
+    /* Убираем сердечко из текстовых ссылок, если оно там оказалось */
     .nav-links .icon-favorite {
-        display: inline-flex !important;
-        align-items: center !important;
-    }
-    
-    .nav-links .icon-favorite svg {
-        stroke: #111111 !important;
-        stroke-width: 1.8 !important;
-        fill: none !important;
-        width: 20px !important;
-        height: 20px !important;
+        display: none !important;
     }
     
     /* ===== ГЕРОЙ СЕКЦИЯ ===== */
@@ -167,14 +160,6 @@
         gap: 40px !important;
     }
     
-    .card {
-        transition: transform 0.2s ease !important;
-    }
-    
-    .card:hover {
-        transform: translateY(-4px) !important;
-    }
-    
     .hero h1 {
         font-size: 64px !important;
     }
@@ -197,7 +182,7 @@
     }
 }
 
-/* ===== ДЛЯ ОЧЕНЬ ШИРОКИХ ЭКРАНОВ (2556px и больше) ===== */
+/* ===== ДЛЯ ОЧЕНЬ ШИРОКИХ ЭКРАНОВ ===== */
 @media (min-width: 2556px) {
     .container {
         max-width: 1600px !important;
