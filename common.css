@@ -1,8 +1,6 @@
-/* common.css - только для мобильной перестройки */
-
 /* ===== ТОЛЬКО ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (до 768px) ===== */
 @media (max-width: 768px) {
-    /* Перестраиваем шапку */
+    /* ===== ШАПКА ===== */
     .header-row {
         display: flex !important;
         flex-direction: column !important;
@@ -13,63 +11,82 @@
     /* Логотип - первый */
     .logo {
         order: 1 !important;
+        font-size: 28px !important;
+        margin-bottom: 5px !important;
     }
     
-    /* Берем иконки из nav и перемещаем их наверх */
+    /* Навигация - второй блок (иконки и ссылки вместе) */
     .nav {
-        order: 3 !important;
+        order: 2 !important;
         display: flex !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
-        gap: 20px !important;
+        align-items: center !important;
+        gap: 25px !important;
         width: 100% !important;
     }
     
-    /* Иконки внутри nav - поднимаем наверх отдельным блоком */
-    .nav .icon,
-    .nav .icon-favorite,
-    .nav .cart-icon {
-        order: -1 !important;
-        display: inline-flex !important;
-    }
-    
-    /* Создаем невидимый контейнер для иконок, чтобы они были перед ссылками */
-    .nav {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    
-    /* Все иконки в nav - черного цвета */
+    /* Иконки - черного цвета */
     .nav .icon svg,
     .nav .icon-favorite svg,
     .nav .cart-icon svg {
         stroke: #111111 !important;
+        stroke-width: 1.8 !important;
         fill: none !important;
+        width: 22px !important;
+        height: 22px !important;
     }
     
-    /* Убираем эффект наведения на мобилке */
-    .nav .icon-favorite:hover svg {
-        stroke: #111111 !important;
-        fill: none !important;
-    }
-    
-    /* Текстовые ссылки */
+    /* Текстовые ссылки - черные */
     .nav a:not(.icon):not(.icon-favorite):not(.cart-icon) {
-        order: 1 !important;
+        color: #111111 !important;
+        font-size: 14px !important;
+        text-decoration: none !important;
     }
     
-    /* Поиск - внизу */
-    .search-wrapper {
-        order: 4 !important;
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        margin-top: 10px !important;
+    /* ===== ГЕРОЙ СЕКЦИЯ - поднимаем текст вверх ===== */
+    .hero {
+        padding: 10px 0 30px !important;
     }
     
-    /* Футер - две колонки */
+    .hero h1 {
+        font-size: 48px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .hero-text {
+        font-size: 16px !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        position: relative !important;
+        top: -5px !important;
+    }
+    
+    /* ===== КНОПКИ: фон зеленый, ТЕКСТ ЧЕРНЫЙ ===== */
+    .card button,
+    .btn-cart,
+    .subscribe-btn,
+    .checkout-btn,
+    .save-btn,
+    .auth-btn,
+    .cart button,
+    .favorite-card button {
+        background: #a6a86c !important;  /* Зеленый фон */
+        color: #111111 !important;        /* Черный текст */
+        border: none !important;
+    }
+    
+    .card button:hover,
+    .btn-cart:hover,
+    .subscribe-btn:hover,
+    .checkout-btn:hover,
+    .save-btn:hover,
+    .auth-btn:hover {
+        background: #8b8d5a !important;  /* Темно-зеленый при наведении */
+        color: #111111 !important;        /* Текст остается черным */
+    }
+    
+    /* ===== ФУТЕР ===== */
     .footer-content {
         flex-direction: column !important;
         gap: 30px !important;
@@ -86,5 +103,19 @@
     
     .footer-links .col {
         align-items: center !important;
+    }
+}
+
+/* ===== ДЛЯ ЭКРАНОВ 2556x1179 ===== */
+@media (min-width: 1921px) {
+    .container {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+    }
+    
+    .catalog-grid,
+    .favorites-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 40px !important;
     }
 }
